@@ -1,0 +1,1097 @@
+//////////to do list////////
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+<h2>My Todo List</h2>
+
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+<script>
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Clean House', done:false}];
+
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
+
+</body>
+</html>
+
+
+///////////////////capital/////////////
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country with Capitals</title>
+    <style>
+        *{
+
+            font-family: sans-serif;
+            
+        }
+        .container{
+            margin-left: 390px;
+            margin-top: 50px;
+            padding: 50px;
+            background-color:aliceblue;
+            height: 200px;
+            width: 300px;
+            border-radius: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        body{
+            background-color:darkgoldenrod(252, 127, 3);
+        }
+        p{
+            font-size: 50px;
+            color:#1d2029 ;
+            font-family: sans-serif;
+        }
+    </style>
+    <script>
+        function capital(){
+            let cunt=document.getElementById("country").value;
+            let capital="please select country";
+
+            if (cunt == "india") {
+                capital = "NEW DELHI";
+            }
+            if (cunt == "china") {
+                capital = "BEIJING";
+            }
+            if (cunt == "pakistan") {
+                capital = "ISLAMABAD";
+            }
+            if (cunt == "bangladesh") {
+                capital = "DHAKA";
+            }
+            if (cunt == "japan") {
+                capital = "TOKYO";
+            }
+
+            if (cunt == "select") {
+                capital = "Please select any country";
+            }
+            document.getElementById("capt").innerHTML=capital;
+
+        }
+        
+    </script>
+</head>
+<body>
+    <h1> Magic App</h1>
+    <div class="container">
+        Select a Country : 
+        <Select name="country" onchange="capital()" id="country">
+            <option value="select">--SELECT--</option>
+            <option value="india">INDIA</option>
+            <option value="china">CHINA</option>
+            <option value="pakistan">PAKISTAN</option>
+            <option value="bangladesh">BANGLADESH</option>
+            <option value="japan">JAPAN</option>
+        </Select>
+        <br>
+        <br>
+        <font color="green" size="6">Capital is :</font>
+        <p id="capt" ></p>
+    </div>
+</body>
+</html>
+
+//////////////////website///////////////
+//////////////////////webside//////////////////
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .form {
+            margin: 15% 40%;
+            padding: 20px;
+            background-color: aquamarine;
+            height: 150px;
+        }
+    </style>
+</head>
+<frameset rows="20%,80%">
+    <frame src="navbar.html">
+    <frameset cols="20%,80%">
+        <frame src="frame2.html">
+        <frame src="frame1.html">
+    </frameset>
+</frameset>
+</html>
+
+//////////////////////
+navbar.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="lamb.css">
+</head>
+<body>
+    <div class="hero">
+    <nav>
+        <img src="images/menu.png" class="menu-img">
+        <img src="images/logo.png" class="logo">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="formValidation.html">Register</a></li>
+        </ul>
+        <button type="button" onclick="togglebtn()" id="btn"><span></span></button>
+    </nav>
+    </div>
+</body>
+</html>
+//////////////////////////////////////
+frame 1.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame1</title>
+</head>
+<body>
+    
+        <!-- Your homepage content goes here -->
+        <div>
+            <h1>Welcome to My Website!</h1>
+            <p>Explore the exciting content we have to offer.</p>
+            <ul>
+                <li><a href="frame1.html" target="frame">Link to Frame 1</a></li>
+                <li><a href="frame2.html" target="frame">Link to Frame 2</a></li>
+                <li><a href="frame3.html" target="frame">Link to Frame 3</a></li>
+            </ul>
+        </div>
+    
+        <!-- Frameset goes here -->
+        
+    
+    
+</body>
+</html>
+
+////////////////////////////////////////////////////
+frame 2.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame2</title>
+</head>
+<body>
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="formValidation.html">Register</a></li>
+    </ul>
+</body>
+</html>
+//////////////////////////////////////////////////////////
+
+login.html 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1d2026;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            height: 200px;
+            padding: 15px;
+            border:1px solid #009688;
+            border-radius: 5px;
+            background-color: azure;
+
+        }
+        input{
+            margin:5px 0px;
+            padding: 7px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #009688;
+        }
+
+        button{
+            height: 35px;
+            margin:5px 0px;
+            background-color: skyblue;
+            border: 1px solid #009688;
+            border-radius: 5px;
+            color:black;
+            font-weight: 400;
+            font-size: 15px;
+            font-family: sans-serif;
+        }
+        button:hover{
+            background-color: #333;
+            color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" onsubmit="return passwordChecker()">
+    <div class="container">
+        
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" id="pass">
+        <button type="submit"><bold>Login</bold></button>
+        
+    </div>
+    </form> 
+    <script>
+        function passwordChecker(){
+            var pass=document.getElementById('pass').value;
+            if(pass.length<8){
+                alert('Password should be atleast 8 character long..');
+                return false;
+            }
+            if(!/[A-Z]/.test(pass)){
+                alert('Password should contain atleast one uppercase letter');
+                return false;
+            }
+            if(!/[a-z]/.test(pass)){
+                alert('Password should contain atleast one lowercase letter');
+                return false;
+            }
+            if(!/[0-9]/.test(pass)){
+                alert('Password should contain atleast one digit');
+                return false;
+            }
+            if(!/[!@#$%^&*]/.test(pass)){
+                alert('Password should contain atleast one special letter');
+                return false;
+            }
+            return true;
+        }
+        
+    </script>
+</body>
+</html>
+/////////////////////////////////////////////////
+formvalidation.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation</title>
+    <style>
+        body{
+            padding: 10px 50px;
+        }
+        .formdesign{
+            font-size: 20px;
+        }
+        .formdesign input{
+            width: 50%;
+            padding: 12px 20px;
+            border:1px solid blue;
+            border-radius: 4px;
+            margin:14px;
+            font-size: 15px;
+        }
+        .formerror{
+            color: red;
+        }
+        .but{
+            border-radius: 9px;
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin: 22px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to best form on Internet</h1>
+    <form action="/myaction.php" name="myform" onsubmit="return validateform()" method="post">
+        <div class="formdesign" id="name">
+            Name:<input type="text" name="fname" required><b><span class="formerror"></span></b>
+
+        </div>
+        <div class="formdesign" id="email">
+            Email:<input type="email" name="femail" required><b><span class="formerror"></span></b>
+
+        </div>
+        <div class="formdesign" id="phone">
+            Phone:<input type="phone" name="fphone" required><b><span class="formerror"></span></b>
+
+        </div>
+        <div class="formdesign" id="pass">
+            Password:<input type="password" name="fpass" required><b><span class="formerror"></span></b>
+
+        </div>
+        <div class="formdesign" id="cpass">
+            Confirm Password:<input type="password" name="fcpass"><b><span class="formerror"></span></b>
+
+        </div>
+       <input type="submit" value="Submit" class="but">
+    </form>
+    <script>
+        function clearErrors(){
+            errors=document.getElementsByClassName('formerror');
+            for(let item of errors){
+                item.innerHTML="";
+            }
+        }
+        function seterror(id,error){
+            element=document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML=error;
+
+        }
+        function validateform() {
+            var returnval = true;
+            clearErrors();
+            var name = document.forms['myform']['fname'].value;
+            if (name.length < 5) {
+                alert("Name should be at least 5 characters long.");
+                seterror('name', '*Length of name is too short');
+                returnval = false;
+            }
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                alert("Name should contain only letters and spaces.");
+                seterror('name', '*Name should contain only letters and spaces.');
+                returnval = false;
+            }
+
+            var phone = document.forms['myform']['fphone'].value;
+            if (phone.length != 10) {
+                alert('*Phone number should be 10 digits');
+                //seterror('phone', '*Phone number should be 10 digits');
+                returnval = false;
+            }
+            if (!/^\d{10}$/.test(phone)) {
+                alert('*Phone number should contains digits only');
+                //seterror('phone', '*Phone number should be 10 digits');
+                returnval = false;
+            }
+            var pass = document.forms['myform']['fpass'].value;
+
+            if (pass.length < 8) {
+                alert("Password should be at least 8 characters long.");
+                //seterror('pass','*Password is too short (at least 8 characters required)');
+                returnval= false;
+            }
+            if (!/[A-Z]/.test(pass)) {
+                alert("Password should contain at least one uppercase letter.");
+                //seterror('pass','*Password must contain at least one uppercase letter');
+                 returnval = false;
+            }
+            if (!/[a-z]/.test(pass)) {
+                alert("Password should contain at least one lowercase letter.");
+                //seterror('pass','*Password must contain at least one lowercase letter');
+                returnval = false;
+            }
+            
+            if (!/[0-9]/.test(pass)) {
+                alert("Password should contain at least one number.");
+                //seterror('pass', '*Password must contain at least one digit');
+                 returnval = false;
+            }
+
+            return returnval;
+        }
+
+            
+    </script>
+</body>
+</html>
+
+/////////////////////////////////////////////////////
+in frame 1 pass.html 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Honors Registration Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script>
+        function Registration() {
+            var name = document.getElementById('n1').value;
+            var date = document.getElementById('date').value;
+            var num = document.getElementById('num').value;
+            var dept = document.getElementById('dept').value;
+            var prn = document.getElementById('prn').value;
+            var div = document.getElementById('div').value;
+            var marks = document.getElementById('marks').value;
+            var honors = document.getElementById('honors').value;
+            var checkb = document.getElementById('checked').checked;
+            if (name == "") {
+                alert("Please Enter Your Name..");
+                return false;
+            }
+            else if (date == "") {
+                alert("Date of Birth is Required.");
+                return false;
+            }
+            else if (num == "") {
+                alert("Please Enter Contact Number..");
+                return false;
+            }
+            else if (dept == "") {
+                alert("Please Select Department..");
+                return false;
+            }
+            else if (prn == "") {
+                alert("Please Enter PRN..");
+                return false;
+            }
+            else if (div == "") {
+                alert("Please Enter Division..");
+                return false;
+            }
+            else if (marks == "") {
+                alert("Please Enter Marks..");
+                return false;
+            }
+            else if (honors == "") {
+                alert("Please Select Honors Course..");
+                return false;
+            }
+            else if (!checkb) {
+                alert("Please Confirm the Information by checking the box.");
+                return false;
+            }
+            else {
+                return window.location.href = "regSucc.html";
+            }
+        }
+
+    </script>
+    </head>
+
+<body>
+    <form>
+        <div class="container mt-5">
+            <h2>Welcome to Sanjivani College of Engineering, Kopargaon</h2>
+            <p>Thank you for your interest in the Department of Computer Engineering's Honors Registration. We
+                appreciate your dedication to pursuing an Honors program.</p>
+            <p>Please take a moment to provide us with your essential information. Your details will help us ensure a
+                successful registration process.</p>
+            <div class="separator"></div>
+            <b>Personal Details:</b><br>
+            <div class="form-group">
+                <label class="label" for="n1">Name:</label>
+                <input class="input-box" type="text" border="1" name="Name" id="n1">
+            </div>
+            <div class="form-group">
+                <label class="label" for="date">Date of Birth:</label>
+                <input class="input-box" type="date" name="DOB" id="date">
+            </div>
+            <div class="form-group">
+                <label class="label">Gender:</label>
+                <div class="input-bo">
+                    <input type="radio" name="Gender" value="Male">Male
+                    <input type="radio" name="Gender" value="Female">Female
+                    <input type="radio" name="Gender" value="Other">Other
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label" for="address">Address:</label>
+                <textarea class="input-box" name="Address" rows="2" cols="20"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="label" for="num">Contact Details:</label>
+                <input class="input-box" type="number" name="number" id="num">
+            </div>
+
+            <div class="separator"></div>
+            <b>Educational Details:</b><br>
+            <div class="form-group">
+                <label class="label" for="dept">Department:</label>
+                <select class="input-box" name="Department" id="dept">
+                    <option>Computer</option>
+                    <option>Information Technology</option>
+                    <option>Civil</option>
+                    <option>Electronics and Computer</option>
+                    <option>Electrical</option>
+                    <option>Mechanical</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="label" for="prn">PRN Number:</label>
+                <input class="input-box" type="text" border="1" name="PRN" id="prn">
+            </div>
+            <div class="form-group">
+                <label class="label" for="div">Division:</label>
+                <input class="input-box" type="text" border="1" name="Division" id="div">
+            </div>
+            <div class="form-group">
+                <label class="label" for="marks">Marks:</label>
+                <input class="input-box" type="number" border="1" name="Marks" id="marks">
+            </div>
+            <div class="form-group">
+                <label class="label">Honors Option:</label>
+                <select class="input-box" name="Degree" id="honors">
+                    <option>AI and ML</option>
+                    <option>IOT</option>
+                    <option>Data Science</option>
+                    <option>Cyber Security</option>
+                </select>
+            </div>
+            <div class="separator"> </div>
+            <div class="form-group row">
+                <label for="checked" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="checked">
+                        <label class="form-check-label" for="checked">I confirm that the above information is
+                            Correct.</label>
+                    </div>
+                </div>
+            </div>
+            <center>
+                <input class="input-b" type="button" value="Submit" onclick="return Registration();">
+                <input class="input-b" type="button" value="Reset">
+            </center>
+        </div>
+    </form>
+
+</body>
+
+</html>
+///////////////////////////form validation//////////
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="formv.css" type="text/css" />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="register">
+        <h2>Register Here</h2>
+        <form id="register" method="get" onsubmit="return validateform()">
+          <label>First Name : </label>
+          <br />
+          <input
+            type="text"
+            name="fname"
+            id="fname"
+            placeholder="Enter Your First Name"
+            required
+          />
+          <span id="fnameError" style="color: red"></span>
+          <!-- Error message container -->
+          <br /><br />
+          <label>Last Name : </label>
+          <br />
+          <input
+            type="text"
+            name="lname"
+            id="lname"
+            placeholder="Enter Your Last Name"
+            required
+          />
+          <span id="lnameError" style="color: red"></span>
+          <br /><br />
+          <label>Your Phone No. : </label>
+          <br />
+          <input
+            type="number"
+            name="phone"
+            id="phone"
+            placeholder="Enter Your Phone No."
+          />
+          <span id="phoneError" style="color: red"></span>
+          <br /><br />
+          <label>Email : </label>
+          <br />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter Your Valid Email"
+            required
+          />
+          <br /><br />
+          <label>Password : </label>
+          <br />
+          <input
+            type="password"
+            name="pass"
+            id="pass"
+            placeholder="Enter Your Password"
+            required
+          />
+          <br /><br />
+          <label>Confirm Password : </label>
+                    <br>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Your Password" required>
+                    <span id="confirmPasswordError" style="color: red;"></span>
+                    <br><br>
+          &nbsp;&nbsp;&nbsp;
+          <label>Gender : </label>
+          <br />
+          &nbsp;&nbsp;&nbsp;
+          <input type="radio" name="gender" id="male" />
+          &nbsp;
+          <span id="male">Male</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" name="gender" id="female" />
+          &nbsp;
+          <span id="female">Female</span>
+          <input type="radio" name="gender" id="other" />
+          &nbsp;
+          <span id="other">Other</span>
+          <br /><br />
+          <input type="submit" id="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+    <script>
+      function validateform() {
+        var returnval = true;
+        var fname = document.getElementById("fname");
+        var fnameError = document.getElementById("fnameError");
+
+        var lname = document.getElementById("lname");
+        var lnameError = document.getElementById("lnameError");
+
+        var phone = document.getElementById("phone");
+        var phoneError = document.getElementById("phoneError");
+
+        var pass = document.getElementById("pass");
+        var passError = document.getElementById("passError");
+
+        var confirmPassword = document.getElementById('confirmPassword');
+        var confirmPasswordError = document.getElementById('confirmPasswordError');
+
+
+        if (fname.value.length < 3) {
+          fnameError.textContent ="*First Name should be at least 3 characters long.";
+          returnval = false;
+        } else {
+          fnameError.textContent = ""; // Clear the error message if the input is valid
+        }
+        if (!/^[A-Za-z\s]+$/.test(fname.value)) 
+        {
+            alert("*First Name should contain only letters and spaces.");
+            returnval = false;
+        }
+        if (lname.value.length < 3) {
+          lnameError.textContent ="*Last Name should be at least 3 characters long.";
+          returnval = false;
+        } else {
+          lnameError.textContent = "";
+        }
+        if (!/^[A-Za-z\s]+$/.test(lname.value)) 
+        {
+            alert("*Last Name should contain only letters and spaces.");
+            returnval = false;
+        }
+        if (phone.value.length != 10) {
+          phoneError.textContent = "*Phone number should be 10 digits";
+          returnval = false;
+        } else {
+          phoneError.textContent = "";
+        }
+        if (pass.value.length < 8) {
+          alert("*Password should be at least 8 characters long.");
+          returnval = false;
+        }
+        if (!/[A-Z]/.test(pass.value)) 
+        {
+            alert("*Password should contain at least one uppercase letter.");
+            returnval = false;
+        }
+        if (!/[a-z]/.test(pass.value)) {
+            alert("*Password should contain at least one lowercase letter.");
+            returnval = false;
+        }
+            
+        if (!/[0-9]/.test(pass.value)) 
+        {
+            alert("*Password should contain at least one number.");
+            returnval = false;
+        }
+        if (!/[@$!%*?&]/.test(pass.value)) 
+        {
+            alert("*Password should contain at least one special character.");
+            returnval = false;
+        }
+        if (confirmPassword.value !== pass.value) 
+        {
+            confirmPasswordError.textContent = "*Passwords do not match.";
+            returnval = false;
+        } 
+        else 
+        {
+            confirmPasswordError.textContent = "";
+        }
+        
+        return returnval;
+      }
+    </script>
+  </body>
+</html>
+////////////////////registration form/////////
+
+/////////////////////////registration form///////////////
+<!DOCTYTPE html>
+<html>
+<head>
+<title>Exam Registration Form</title>
+<link rel="stylesheet" type="text/css" href="mystyle.css"> <!-- External CSS--> 
+</head>
+<style>
+marquee{
+font-size:30px;
+}
+input[type=text],select{
+width:100%;
+padding:12px 20px;
+margin:8px 0;
+display:inline-block;
+border:1px solid #ccc;
+border-radius:4px;
+box-sizing:border-box;}
+
+input[type=submit] {
+width:100%;
+padding:14px 20px;
+background-color:green;
+border:none;
+border-radius:4px;
+color:white;}
+
+input[type=radio]{
+width:5%;
+}
+
+input [type=reset]{
+width:100%;
+background-color:red;
+}
+
+input[type=date]{
+width:100%;
+padding:12px 20px;
+margin:8px 0;
+border-radius:4px;
+}
+input[type=email],select
+{
+width:100%;
+padding:12px 20px;
+margin:8px 0;
+display:inline-block;
+border:1px solid #ccc;
+border-radius:4px;
+box-sizing:border-box;
+}
+</style>
+<body style="background-color:lightblue;">                   <!--Inline CSS--> 
+<marquee>Exam Registration Form</marquee>
+<h1>Sanjivani College Of Engineering Kopargaon</h1>
+<h3>Computer Engineering Department</h2>
+<form>
+First Name:<br>
+<input type="text" name="firstname" placeholder="Your First Name"><br>
+Middle name:<br>
+<input type="text" name="middlename" placeholder="Your Middle Name"><br>
+Last name:<br>
+<input type="text" name="lastname" placeholder="Your Last Name Name"><br>
+Gender:<br>
+<input type="radio" name="gender" value="male">Male<br>
+<input type="radio" name="gender" value="female">Female<br>
+<input type="radio" name="gender" value="other">Other<br>
+PRN(Permanent registration number):<br>
+<input type="text" name="prn" placeholder="Your PRN Number(In Capital Letters Only)"><br>
+Date Of Birth:<br>
+<input type="date" name="date of birth"><br>
+Email-id:<br>
+<input type="email" name="email" placeholder="Your Email id"><br>
+Registered Mobile number:<br>
+<input type="text" name="mobile number"><br>
+Department:<br>
+<select>
+<option value="department">Department</option><br>
+<option value="computer">Computer</option><br>
+<option value="it"> IT</option><br>
+<option value="civil">Civil</option><br>
+<option value="ece">ECE</option><br>
+<option value="mechanical">Mechanical</option><br>
+<option value="mechatronics"> Mechatronics</option><br>
+<option value="structural"> Structural</option><br>
+</select>
+subject:<br>
+<select>
+<option value="subject">Subject</option><br>
+<option value="toc">Theory Of Computation</option><br>
+<option value="daa">Design Of Analysis and Algorithm</option><br>
+<option value="cc">Cloud Computing</option><br>
+<option value="wt">Web Technology</option><br>
+<option value="cn">Computer Network</option><br>
+</select>
+<br>
+<input type="reset" value="Reset"><br>
+<br>
+<input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
+////////////////////////////
+/////////////login1.jsp///////////
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="loginform" method="post">
+        <label for="email1">Email:</label>
+        <input type="text" id="email1" name="email1" required/><br/>
+
+        <label for="pass1">Password:</label>
+        <input type="password" id="pass1" name="pass1" required/><br/>
+
+        <input type="submit" value="Login"/><br/>
+    </form>
+</body>
+</html>
+//////////////////////////
+profile1.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>welcome:${session_name}</h3>
+
+</body>
+</html>
+////////////////////////jspconnectivity////////////
+login1.java
+
+package login;
+
+import java.io.IOException;
+import java.io.PrintWriter; // Added import for PrintWriter
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/loginform")
+public class login1 extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String myemail = req.getParameter("email1");
+        String mypass = req.getParameter("pass1");
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "sujata@2727");
+
+            PreparedStatement ps = con.prepareStatement("select * from register where myemail=? and mypass=?");
+            ps.setString(1, myemail);
+            ps.setString(2, mypass);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+            	HttpSession session=req.getSession();
+            	session.setAttribute("session_name", rs.getString("myemail"));
+       
+                RequestDispatcher rd = req.getRequestDispatcher("/profile.jsp");
+                rd.include(req, resp);
+            } else {
+                resp.setContentType("text/html");
+                PrintWriter out = resp.getWriter(); // Added PrintWriter
+                out.print("<h3 style='color:red'>Email id and password didn't match</h3>");
+                RequestDispatcher rd = req.getRequestDispatcher("/login1.jsp");
+                rd.include(req, resp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp.setContentType("text/html");
+            PrintWriter out = resp.getWriter(); // Added PrintWriter
+            out.print("<h3 style='color:red'>" + e.getMessage() + "</h3>");
+            RequestDispatcher rd = req.getRequestDispatcher("/login1.jsp");
+            rd.include(req, resp);
+        }
+    }
+}
+
+////////////////////////
+mysql
+
+create table login(uname varchar(20) primary key,password varchar(20));
+ select * from login;
+ desc login;
+ use db;
+ select * from register;
+ desc register;
+ insert into register values("divya@gmail.com","pass@123");
+
+//////////////////////////////website//////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Restaurant Name</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <img src="logo.jpg" class="logo">
+            <!-- <img src="images/logo.png" class="logo"> -->
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reservations">Reservations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button type="button">click here</button>
+        </nav>
+        <!-- <div class="logo"> -->
+            <!-- <img src="logo.jpg" alt="Restaurant Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reservations">Reservations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav> -->
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Your Restaurant Name</h1>
+        <p>Discover the finest dining experience in town.</p>
+        <a href="#reservations" class="btn">Reserve a Table</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <!-- Menu items go here -->
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Your Restaurant Name is dedicated to providing...</p>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="reservations">
+        <h2>Reservations</h2>
+        <p>Make a reservation to secure your table.</p>
+        <!-- Reservation form goes here -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or special requests? Get in touch.</p>
+        <!-- Contact form goes here -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Your Restaurant Name. All rights reserved.</p>
+        <!-- Social media links and additional links go here -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
